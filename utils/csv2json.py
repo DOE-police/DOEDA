@@ -7,16 +7,18 @@ The csv file should:
 - have its last column as the response
 - have its first row contain the variable names
 """
+import re
+
+import yaml
 
 import click
-import pandas as pd
 import numpy as np
-import json
-import os
+import pandas as pd
 
 
 @click.command()
-@click.argument("filename")
+@click.argument("infile")
+@click.argument("outfile")
 @click.option(
     "--no-header",
     default=False,
@@ -38,26 +40,29 @@ import os
     default=None,
     help="Title of the experiment. Filename is used if none is given.",
 )
-def main(filename, no_header, coded, title):
+# TODO: add option to specify the repsonse (if any) and the number of repsonse variables
+# TODO: add an option to submit the DOI (+ check to remove the 'htpps://doi.org/'
+#  from the string if it is there)
+def main(infile, outfile, no_header, coded, title):
     """
-    Read the contents of the csv file FILENAME to generate the skeleton experiment file.
-    It is assumed that the full path of the csv file is "../csv/FILENAME", so that only the filename has to be provided.
-    Save the output file to a YAML file in '../yml' folder.
+    Read the contents of the csv file INFILE to generate the skeleton experiment file.
+    Save the output file to a YAML file OUTFILE.
     """
     # Options for loading the csv file
     if no_header:
         header = None
     else:
         header = 0
-    # Full path of the csv file
-    full_path = os.path.join("../csv", filename)
     # Loading file to a dataframe to keep column name
-    df = pd.read_csv(full_path, header=header, index_col=None)
+    df = pd.read_csv(infile, header=header, index_col=None, encoding='windows-1252',
+                     sep=';')
     # Only dict are written to yaml
     data_dict = dict()
     # Infer title from filename
     if title is None:
-        exp_title = filename.replace(".csv", "").replace("_", " ").replace("-", " ")
+        exp_title = re.search(r'\/(\w+)\.csv', infile).group(1).replace("_",
+                                                                        " ").replace(
+            "-", " ")
     else:
         exp_title = title
     data_dict["title"] = exp_title
@@ -65,7 +70,7 @@ def main(filename, no_header, coded, title):
     data_dict["runsize"] = df.shape[0]
     # For each variable in df, gather characteristics
     data_dict["design"] = []
-    for factor_name in df.columns[:-1]:  # index by column names
+    for factor_name in df.columns:  # index by column names
         if coded:
             column = None
             coded_column = df[factor_name].to_list()
@@ -97,9 +102,9 @@ def main(filename, no_header, coded, title):
     data_dict["keywords"] = []
     data_dict["doi"] = None
     # Save experiment data to yaml file, use filename as path
-    output_path = os.path.join("../yml", filename.replace(".csv", ".yml"))
-    with open(output_path, "w") as file:
-        json.dump(data_dict, file, indent=2)
+    with open(outfile, "w") as file:
+        yaml.dump(data_dict, file, default_flow_style=True, sort_keys=False,
+                  indent=4, allow_unicode=True, encoding='windows-1252')
 
 
 if __name__ == "__main__":
