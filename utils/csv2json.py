@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Generate the skeleton of a YAML document, based on the contents of the csv file.
 
