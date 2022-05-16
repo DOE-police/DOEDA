@@ -93,6 +93,7 @@ def main(infile, outfile, header, units, coded, response, title, doi, descriptio
         header_value = None
     # Loading file to a dataframe to keep column name
     df = pd.read_csv(
+        # FIXME problem with the encoding for variables containing greek letters
         infile, header=header_value, index_col=None, encoding="windows-1252", sep=";"
     )
     # Retrieve units from variable names if needed
