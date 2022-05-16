@@ -41,6 +41,14 @@ import pandas as pd
     help="Factor levels are in coded form.",
 )
 @click.option(
+    "--response",
+    default=0,
+    type=int,
+    show_default=True,
+    help="Number of response variables present in the dataset. Set to 0 if no "
+         "response variable is provided."
+)
+@click.option(
     "--title",
     type=str,
     default=None,
@@ -72,8 +80,8 @@ import pandas as pd
          "each with a '-k' option. All keywords must be single words, or hyphen "
          "separated (i.e. fractional-factorial)."
 )
-# TODO: add option to specify the repsonse (if any) and the number of repsonse variables
-def main(infile, outfile, header, units, coded, title, doi, description, keyword):
+def main(infile, outfile, header, units, coded, response, title, doi, description,
+         keyword):
     """
     Read the contents of the csv file INFILE to generate the skeleton of the experiment
     file. Save the output file to a YAML file named OUTFILE.
@@ -118,30 +126,45 @@ def main(infile, outfile, header, units, coded, title, doi, description, keyword
     data_dict["runsize"] = df.shape[0]
     # For each variable in df, gather characteristics
     data_dict["design"] = []
-    for factor_name in df.columns:  # index by column names
-        if coded:
-            column = None
-            coded_column = df[factor_name].to_list()
-            levels = np.unique(column)
+    if response > 0:
+        response_in = True
+        data_dict['response'] = []
+    else:
+        response_in = False
+    for factor_index, factor_name in enumerate(df.columns):  # index by column names
+        # Check if the factor is a response column or not
+        if response_in and (factor_index >= (df.shape[1] - response)):
+            factor = {
+                "name": factor_name,
+                "value": df[factor_name].to_list(),
+                "units": var_units.get(factor_name)
+            }
+            data_dict['response'].append(factor)
         else:
-            column = df[factor_name].to_list()
-            levels = np.unique(column)
-            # Rule for recoding the factor levels
-            rule = dict()
-            for i, x in enumerate(levels):
-                # Levels are -1, 0, 1 if it's a three-level factor
-                idx = i - 1 if len(levels) == 3 else i
-                rule[x] = idx
-            # Recode the column
-            coded_column = [rule[x] for x in column]
-        factor = {
-            "name": factor_name,
-            "uncoded": column,
-            "coded": coded_column,
-            "levels": len(levels),
-            "units": var_units.get(factor_name)
-        }
-        data_dict["design"].append(factor)
+            if coded:
+                column = None
+                coded_column = df[factor_name].to_list()
+                levels = np.unique(column)
+            else:
+                column = df[factor_name].to_list()
+                levels = np.unique(column)
+                # Rule for recoding the factor levels
+                rule = dict()
+                for i, x in enumerate(levels):
+                    # Levels are -1, 0, 1 if it's a three-level factor
+                    idx = i - 1 if len(levels) == 3 else i
+                    rule[x] = idx
+                # Recode the column
+                coded_column = [rule[x] for x in column]
+            factor = {
+                "name": factor_name,
+                "uncoded": column,
+                "coded": coded_column,
+                "levels": len(levels),
+                "units": var_units.get(factor_name)
+            }
+            data_dict["design"].append(factor)
+
     # Check if multilevel by comparing the number of factors
     n_levels = [i["levels"] for i in data_dict["design"]]
     data_dict["multilevel"] = len(np.unique(n_levels)) > 1
