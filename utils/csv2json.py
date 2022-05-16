@@ -89,14 +89,14 @@ def main(infile, outfile, header, units, coded, title, doi, description, keyword
     )
     # Retrieve units from variable names if needed
     if units:
-        var_units = []
+        var_units = dict()
         for col in df.columns:
             units_rgx = re.search(r'\((.+)\)$', col)
             # Check if the regex captured something in the headers
             if units_rgx is None:
-                var_units.append('null')
+                var_units[col] = None
             else:
-                var_units.append(units_rgx.group(1))
+                var_units[col] = units_rgx.group(1)
     # Only dict are written to yaml
     data_dict = dict()
     # Infer title from filename
@@ -139,7 +139,7 @@ def main(infile, outfile, header, units, coded, title, doi, description, keyword
             "uncoded": column,
             "coded": coded_column,
             "levels": len(levels),
-            "units": "NA",
+            "units": var_units.get(factor_name)
         }
         data_dict["design"].append(factor)
     # Check if multilevel by comparing the number of factors
