@@ -25,21 +25,18 @@ import pandas as pd
 @click.option(
     "--header/--no-header",
     default="--no-header",
-    required=True,
     show_default=True,
     help="Variable names are specified in first row of the csv file.",
 )
 @click.option(
     '--units/--no-units',
     default="--no-units",
-    required=True,
     show_default=True,
     help="Units are added between brackets at the end of the variable names."
 )
 @click.option(
     "--coded/--uncoded",
     default="--uncoded",
-    required=True,
     show_default=True,
     help="Factor levels are in coded form.",
 )
