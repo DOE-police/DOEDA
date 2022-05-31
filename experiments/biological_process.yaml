@@ -1,0 +1,167 @@
+title: Biological process characterization experiment
+run_size: 17
+dataset:
+- name: C_Protein
+  uncoded: null
+  coded:
+  - -1
+  - 1
+  - 0
+  - 1
+  - 0
+  - 0
+  - -1
+  - -1
+  - 0
+  - 1
+  - -1
+  - 0
+  - -1
+  - 0
+  - 0
+  - 1
+  - 1
+  levels: 3
+  units: null
+- name: C_Lysine
+  uncoded: null
+  coded:
+  - -1
+  - -1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 1
+  - 1
+  - 0
+  - 0
+  - 0
+  - 0
+  - -1
+  - 0
+  - -1
+  - 1
+  - -1
+  levels: 3
+  units: null
+- name: Duration
+  uncoded: null
+  coded:
+  - -1
+  - 1
+  - 0
+  - 0
+  - 0
+  - -1
+  - 1
+  - -1
+  - 0
+  - -1
+  - 1
+  - 0
+  - 0
+  - 0
+  - 1
+  - 1
+  - -1
+  levels: 3
+  units: null
+- name: pH
+  uncoded: null
+  coded:
+  - -1
+  - -1
+  - 0
+  - -1
+  - 0
+  - -1
+  - 0
+  - 1
+  - 0
+  - 1
+  - -1
+  - 0
+  - 1
+  - 0
+  - 1
+  - 1
+  - 0
+  levels: 3
+  units: null
+- name: Temperature
+  uncoded: null
+  coded:
+  - 1
+  - 0
+  - 0
+  - 1
+  - 0
+  - -1
+  - 1
+  - 0
+  - 0
+  - 1
+  - -1
+  - 0
+  - -1
+  - 0
+  - 1
+  - -1
+  - -1
+  levels: 3
+  units: null
+- name: HCHO:protein
+  uncoded: null
+  coded:
+  - 0
+  - -1
+  - 0
+  - 1
+  - 0
+  - -1
+  - -1
+  - 1
+  - 0
+  - -1
+  - 1
+  - 0
+  - -1
+  - 0
+  - 1
+  - 0
+  - 1
+  levels: 3
+  units: null
+response:
+- name: Extent of polymerization
+  value:
+  - '2.9'
+  - '14.9'
+  - '14.4'
+  - '27.5'
+  - '14.6'
+  - '3.6'
+  - '2.5'
+  - '8.5'
+  - '14.1'
+  - '22'
+  - '4.2'
+  - '14.2'
+  - '2.7'
+  - '15.3'
+  - '28.2'
+  - '30.7'
+  - '31.9'
+  units: null
+multilevel: false
+doi: 10.1007/s10529-012-1089-y
+description: A recently developed class of three-level designs-definitive screening
+  designs—was employed to select a quadratic model that describes the effect of six
+  input process parameters, including protein concentration, formaldehyde-to-protein
+  ratio, lysine concentration, reaction duration, pH, and reaction temperature, on
+  a formylation protein-crosslinking reaction.
+keywords:
+- center-runs
+- dsd
+- foldover

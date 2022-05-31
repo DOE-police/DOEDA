@@ -159,7 +159,7 @@ def main(infile, outfile, header, units, coded, response, title, doi, source,
             if coded:
                 column = None
                 coded_column = df[factor_name].to_list()
-                levels = np.unique(column)
+                levels = np.unique(coded_column)
             else:
                 column = df[factor_name].to_list()
                 levels = np.unique(column)
