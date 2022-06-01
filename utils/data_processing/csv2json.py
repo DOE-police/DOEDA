@@ -67,7 +67,13 @@ import pandas as pd
     "--source",
     type=str,
     default=None,
-    help="Reference for the source of the data if the DOI is not available."
+    help="Reference for the source of the data if the DOI is not available.",
+)
+@click.option(
+    "--source",
+    type=str,
+    default=None,
+    help="Reference for the source of the data if the DOI is not available.",
 )
 @click.option(
     "--description",
@@ -90,7 +96,7 @@ import pandas as pd
 @click.option(
     "--decimal",
     type=str,
-    default=',',
+    default=",",
     show_default=True,
     help="Character used to represent the decimal point.",
 )
@@ -100,6 +106,13 @@ import pandas as pd
     default=";",
     show_default=True,
     help="Character used as column separator in the csv file.",
+)
+@click.option(
+    "--decimal",
+    type=str,
+    default=",",
+    show_default=True,
+    help="Separator used for the decimals in the csv file.",
 )
 def main(
     infile,
@@ -114,7 +127,7 @@ def main(
     description,
     keyword,
     decimal,
-    sep
+    sep,
 ):
     """
     Read the contents of the csv file INFILE to generate the skeleton of the experiment
@@ -133,7 +146,7 @@ def main(
         index_col=None,
         encoding="utf-8",
         sep=sep,
-        decimal=decimal
+        decimal=decimal,
     )
     # Retrieve units from variable names if needed
     if units:
@@ -222,16 +235,21 @@ def main(
     # For now keywords is not infered from the file
     data_dict["keywords"] = [i.lower() for i in keyword]
     # Save experiment data to yaml file, use filename as path
-    with open(outfile, "w") as file:
-        yaml.dump(
-            data_dict,
-            file,
-            default_flow_style=True,
-            sort_keys=False,
-            indent=2,
-            allow_unicode=True,
-            encoding="latin1",
-        )
+    try:
+        with open(outfile, "w") as file:
+            yaml.dump(
+                data_dict,
+                file,
+                default_flow_style=False,
+                sort_keys=False,
+                indent=2,
+                allow_unicode=True,
+                encoding="utf-8",
+            )
+        print("Csv successfully converted to yaml! 👍")
+    except Exception as e:
+        print("Writing csv to yaml failed!\n%s" % str(e))
+        exit(1)
 
 
 if __name__ == "__main__":
