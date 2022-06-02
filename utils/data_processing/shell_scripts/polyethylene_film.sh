@@ -1,5 +1,5 @@
 #!/bin/bash
-python utils/data_processing/csv2json.py csv/polyethylene_film.csv experiments/polyethylene_film.yaml \
+python utils/data_processing/csv2json.py csv/polyethylene_film_recoded.csv experiments/polyethylene_film.yaml \
 --header \
 --units \
 --uncoded \
