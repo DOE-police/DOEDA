@@ -138,7 +138,7 @@ dmypy.json
 csv/
 yml/
 logo/
-utils/scripts/
+utils/data_processing/shell_scripts
 .vscode/
 
 # Macos
