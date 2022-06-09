@@ -17,6 +17,9 @@ Glossary of all experiment attributes with short definitions.
   Fractional factorial:
     A design that is the fraction of a full-factorial design.
     A full-factorial :math:`2^{k}` contains all combinations of the levels of :math:`k` factors.
+    
+  Full factorial:
+    A full-factorial :math:`2^{k}` contains all combinations of the levels of :math:`k` factors. 
 
   RCBD:
     Randomized Complete Block Design, or RCBD, is a blocked design (see Blocking), where each treatment appears exactly once in each block. It is commonly used in argicultural field trials.
