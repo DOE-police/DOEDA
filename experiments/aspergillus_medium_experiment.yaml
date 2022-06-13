@@ -1,4 +1,4 @@
-title: Aspergillus niger meidum type experiment
+title: Aspergillus niger medium type
 run_size: 20
 dataset:
 - name: Ammonium nitrate (%g)
@@ -952,10 +952,10 @@ response:
 multilevel: false
 source: https://link.springer.com/article/10.1007/BF00369470
 description: Five sources of nitrogen, six minerals, six enzyme inducers and one each
-  of growth as well as product promotors were screened by Plackett-Burman  design,
+  of growth as well as product promotors were screened by Plackett-Burman design,
   consisting of a total of 20 experiments for the above 19 sources/categories of medium
   ingredients, for their effect on the production of alpha-galactosidase by Aspergillus
-  niger MRSS 234 in solid state fermentation system
+  niger MRSS 234 in solid state fermentation system.
 keywords:
 - plackett-burman
 - saturated

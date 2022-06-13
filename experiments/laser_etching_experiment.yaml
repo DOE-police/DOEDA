@@ -1,4 +1,4 @@
-title: Laser Etching Experiment
+title: Laser Etching
 run_size: 15
 dataset:
   - name: Speed
@@ -199,7 +199,7 @@ multilevel: false
 source: NA
 description:
   Average rank for the quality of ecthing on a small plastic plate, using
-  a laser
+  a laser.
 keywords:
   - blocking
   - dsd

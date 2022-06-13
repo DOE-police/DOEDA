@@ -1,4 +1,4 @@
-title: Ceramic strength experiment
+title: Ceramic strength
 run_size: 39
 dataset:
 - name: HA in BCP (%)
@@ -464,7 +464,7 @@ source: https://doi.org/10.1002/(SICI)1097-4636(199612)32:4<603::AID-JBM13>3.0.C
 description: 'Compressive strength measurements were conducted on 32 macroporous biphasic
   calcium phosphate (MBCP) samples to evaluate the influences and interactions  of
   five synthesis factors: chemical composition, percentage of macropores, mean size
-  of macropores, isostatic compaction pressure, and sintering temperature'
+  of macropores, isostatic compaction pressure, and sintering temperature.'
 keywords:
 - center-runs
 - screening
