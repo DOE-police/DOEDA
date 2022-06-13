@@ -4,6 +4,7 @@ Glossary
 Glossary of all experiment attributes with short definitions.
 
 .. glossary::
+  :sorted:
 
   Blocking:
     Blocking an experiment means that the runs are grouped according to one or more factors, usually not controlled by the experimenters, such that all the runs are not randomized.
