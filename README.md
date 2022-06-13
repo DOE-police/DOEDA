@@ -23,4 +23,4 @@ For each experiment, the database provides the following information:
 - **Source**: another reference to the source of the original dataset, if the DOI is not available.
 - **Keywords**: a list of keywords to identify the main characteristics of the experiment.
 
-A list of all possible keywords that can be used to describe the characteristics of the experiment is available in the [glossary](docs/glossary.md)
+A list of all possible keywords that can be used to describe the characteristics of the experiment is available in the [glossary](docs/source/glossary.rst)
