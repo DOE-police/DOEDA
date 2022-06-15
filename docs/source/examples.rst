@@ -1,3 +1,5 @@
+.. _examples:
+
 Examples
 ========
 
@@ -58,7 +60,7 @@ specify with the ``--title "Ceramic strength experiment`` option.
 
 As mentionned earlier, the data is taken from the 1996 paper of Boulers et al., available on `this <https://doi.org/10.1002/(SICI)1097-4636(199612)32:4<603::AID-JBM13>3.0.CO;2-E>` webiste.
 It can be identified by its unique DOI.
-To add it to the experiment file, we use the 
+To add it to the experiment file, we use the
 ``--doi "https://doi.org/10.1002/(SICI)1097-4636(199612)32:4<603::AID-JBM13>3.0.CO;2-E"``
 option.
 
