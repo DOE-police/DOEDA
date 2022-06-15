@@ -98,3 +98,6 @@ When we combine all these together, we obtain the following command:
 .. code:: bash
 
    python csv2json.py --header --units --coded --response 1 --title "Ceramic strength experiment" --doi "https://doi.org/10.1002/(SICI)1097-4636(199612)32:4<603::AID-JBM13>3.0.CO;2-E" --description "Compressive strength measurements were conducted on 32 macroporous biphasic calcium phosphate (MBCP) samples to evaluate the influences and interactions of five synthesis factors: chemical composition, percentage of macropores, mean size of macropores, isostatic compaction pressure, and sintering temperature" -k center-runs -k fractional-factorial ../csv/ceramic_experiment.csv ../yml/ceramic_experiment.yml
+
+
+.. TODO: add a section about the recodecsv.py file

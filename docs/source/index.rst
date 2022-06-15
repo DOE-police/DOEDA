@@ -18,6 +18,8 @@ section.
 Several tools are also available to turn a datafile into an experiment file, or to recode the levels of factors in a datafile.
 All the tools are listed and explained with examples in the :ref:`examples` section.
 
+.. TODO: refactor validation and schemes + add description in the intro
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
