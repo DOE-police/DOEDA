@@ -1,3 +1,5 @@
+.. _experiment:
+
 Information about experiments
 =============================
 
