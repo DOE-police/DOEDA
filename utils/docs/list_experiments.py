@@ -34,7 +34,7 @@ if __name__ == "__main__":
     try:
         names_list, desc_list, kw_list = main('experiments')
         outpath = 'docs/source/experiment_list.rst'
-        with open(outpath, 'w') as f
+        with open(outpath, 'w') as f:
             # Label
             f.write('.. _experiment-list:\n\n')
             # Title
