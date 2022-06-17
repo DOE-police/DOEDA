@@ -20,7 +20,7 @@ Only the first three formatting rules are mandatory.
 The other ones are simply the default options but can be changed when using ``csv2json.py``.
 
 Experiment files
----------------
+----------------
 
 Experiment files are ``.yaml`` files that follow a specific structure.
 
@@ -57,6 +57,7 @@ Keywords validation
 To validate that all the keywords present in the experiment file are described in the glossary, we can use another validation script.
 This script can be found
 in ``utils/validation/scripts/keywords_validation.py`` in this repository.
+
 Calling
 
 .. code-block:: bash

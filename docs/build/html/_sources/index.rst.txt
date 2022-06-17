@@ -15,7 +15,7 @@ Several other tools are also available and explained with :ref:`examples <exampl
 .. TODO: refactor validation and schemes + add description in the intro
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    experiment.rst

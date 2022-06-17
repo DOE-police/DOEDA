@@ -1,27 +1,21 @@
-DOEDA's documentation!
+DOEDA's documentation
 ======================
 
-Design of Experiments Database, or DOEDA, is a database that gathers information about experiments that were performed using an experimental design.
+Design of Experiments Database, or DOEDA, is a database that contains information and data sets about experiments that were performed using an experimental design.
 The main goal of DOEDA is to provide a central interface to easily access all experiments.
 
-Each experiment in the database is stored as an 'experiment file',
-that contains information about the experiment such as the title, a description, the source,
-the design and the data.
-A full list of all the attributes present in an experiment file is available in the
-:ref:`experiment` section.
+Each experiment in the database is stored as an :ref:`experiment file <experiment>`, that contains both the actual data set and some information about the experiment such as the title, a description, the source.
+The experiments are also given a few keywords to identify their characteristics.
+The list of all the keywords and their definition is presented in the :ref:`glossary <glossary>`.
+A list of all the experiment of the database (with their name, description and keywords) is presented in :ref:`this section <experiment-list>`.
 
-In order to easily sort the datasets using their characteristics,
-each experiment is also given a few keywords to identify its characteristics.
-The list of all the keywords and their definition is presented in the :ref:`glossary`
-section.
-
-Several tools are also available to turn a datafile into an experiment file, or to recode the levels of factors in a datafile.
-All the tools are listed and explained with examples in the :ref:`examples` section.
+Since many datasets are often available as csv or text file, we created a tool to create an experiment file from a csv file.
+Several other tools are also available and explained with :ref:`examples <examples>`.
 
 .. TODO: refactor validation and schemes + add description in the intro
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    experiment.rst
