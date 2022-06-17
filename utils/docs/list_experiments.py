@@ -6,7 +6,7 @@ import glob
 import yaml
 from typing import List
 
-
+# TODO: these changes are hard-coded and their should be a global rule for all keywords
 def reformat_kw(kw: str) -> str:
     if kw == 'dsd':
         return 'DSD'
@@ -34,7 +34,9 @@ if __name__ == "__main__":
     try:
         names_list, desc_list, kw_list = main('experiments')
         outpath = 'docs/source/experiment_list.rst'
-        with open(outpath, 'w') as f:
+        with open(outpath, 'w') as f
+            # Label
+            f.write('.. _experiment-list:\n\n')
             # Title
             f.write('List of experiments\n===================\n\n')
             # Glossary procedure
