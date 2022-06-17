@@ -1,7 +1,7 @@
 .. _experiment:
 
-Information about experiments
-=============================
+Experiment file
+===============
 
 For each experiment, the database provides the following information:
 
@@ -26,4 +26,3 @@ For each experiment, the database provides the following information:
 - **DOI**: a DOI string to identify the source of the data.
 - **Source**: another reference to the source of the original dataset, if the DOI is not available.
 - **Keywords**: a list of keywords to identify the main characteristics of the experiment.
-
